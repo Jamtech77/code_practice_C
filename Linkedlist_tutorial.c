@@ -9,8 +9,6 @@ struct _Node{
 typedef struct _Node Node;
 
 Node* NewNode (int data, Node *pNext){
-    data = 0;
-    pNext = NULL;
     Node x = {data, pNext};
     Node *p = (Node *)malloc(sizeof(Node));
     *p = x;
