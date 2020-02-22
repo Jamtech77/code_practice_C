@@ -26,28 +26,20 @@ void merge_and_sort(int* nums1, int m, int* nums2, int n) {
     
     while(i>=0 && j>=0){
         if(nums1[i] >= nums2[j]){
-            nums1[k] = nums1[i];
-            k--;
-            i--;
+            nums1[k--] = nums1[i--];
         }
         else if(nums1[i] < nums2[j]){
-            nums1[k] = nums2[j];
-            k--;
-            j--;
+            nums1[k--] = nums2[j--];
         }
     }
     if(i<0){
         while(j>=0){
-            nums1[k] = nums2[j];
-            j--;
-            k--;
+            nums1[k--] = nums2[j--];
         }      
     }
     if(j<0){
         while(i>=0){
-            nums1[k] = nums1[i];
-            i--;
-            k--;
+            nums1[k--] = nums1[i--];
         }      
     }
     
