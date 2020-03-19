@@ -7,9 +7,8 @@ int main(void){
     int C[SIZE] = {3, 5, 7, -2, 4, 8, 7, 6, 8, 10};
     bubble(C);
 
-    for (int i = 0; i < 10; ++i)  printf("%d ", C[i]);
+    for (int i = 0; i < sizeof(C)/sizeof(int); ++i)  printf("%d ", C[i]);
     printf("\n");
-    getchar();
 
     return 0;
 }
