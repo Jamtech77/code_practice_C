@@ -24,8 +24,8 @@ struct ListNode* reverseList(struct ListNode* head) {
 		//ListNode *Temp = head->next;
 		Temp = head->next;
 		head->next = newhead;
-		newhead = head;	//­ì¥ıªº¦ì§}°eµ¹·sµ²ÂI¡A¾ã­Ó¸`ÂI·h²¾(¦P®É¤º³¡ªºdata¤]¤@¨Ö·h²¾)
-		head = Temp;	//¨Ó¨ì­ì¥ıªº¤U¤@­Ó¸`ÂIªº¦ì§}
+		newhead = head;	//åŸå…ˆçš„ä½å€é€çµ¦æ–°çµé»ï¼Œæ•´å€‹ç¯€é»æ¬ç§»(åŒæ™‚å…§éƒ¨çš„dataä¹Ÿä¸€ä½µæ¬ç§»)
+		head = Temp;	//ä¾†åˆ°åŸå…ˆçš„ä¸‹ä¸€å€‹ç¯€é»çš„ä½å€
 
 	}
 	return newhead;
@@ -44,30 +44,30 @@ struct ListNode* reverseList_2(struct ListNode* head) {
 }
 
 int main(void) {
-    puts("Hello World!");
-    int i;
-	// Creation
-    ListNode *pHead = NULL;
-    for(i=4;i>=0;i--){
-        pHead = NewNode(i, pHead);
-    }
+	puts("Hello World!");
+	int i;
+	// Createã€€Node
+	ListNode *pHead = NULL;
+	for(i=4;i>=0;i--){
+		pHead = NewNode(i, pHead);
+	}
 
 	ListNode *p = pHead;
 
 	while(p != NULL){
-        ShowNode(p);
-        p = p->next;
-    }
-    printf("\n");
+        	ShowNode(p);
+        	p = p->next;
+	}
+	printf("\n");
 
 
 	p = reverseList(pHead);
 	//p = reverseList_2(pHead);
 
 	while(p != NULL){
-        ShowNode(p);
-        p = p->next;
-    }
+		ShowNode(p);
+		p = p->next;
+	}
 
-    return 0;
+	return 0;
 }
