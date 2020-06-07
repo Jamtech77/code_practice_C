@@ -12,32 +12,48 @@ char *erasechar(char *str, int i, int num){
     char *temp = (char *)malloc(sizeof(char)*(len-num));
     char c = str[i];
     char *strx = (char *)malloc(sizeof(char)*(len-num));
+    int Del = 0;
+
+    int n = 0;
+
     strx = temp;
 
-    if( (len - i) < num ){
-        printf("Error\n");
-        return NULL;
+    if(num == 0) return str;
+    if(i > len) {
+        printf("Size Error\n");
+        return str;
     }
 
-    while (*str != '\0') {
-        if(*str == c) {
-            str = str + (num-1);
-        } else {
-            *temp = *str;
-            temp++;
-        }
+    if( (len - i) < num ){
+        printf("Size Error\n");
+        return str;
+    }
+
+    for(n = 0 ; n < i ; n++){
+        *temp = *str;
+        temp++;
         str++;
     }
 
+    str = str + num;
+
+    while (*str != '\0') {
+        *temp = *str;
+        temp++;
+        str++;
+    }
+
+    *temp = '\0';
+
     return strx;
-  }
+}
 
 int main(void) {
-    char *str = "123456789abcdefg";
-    char *a = erasechar(str, 7, 5);
+    char *str = "1222226789abcdefg";
+    char *a = erasechar(str, 30, 10);
 
-    printf("%s\n", str);
-    printf("%s\n", a);
+    printf("Before: %s\n", str);
+    printf("After : %s\n", a);
 
     return 0;
 }

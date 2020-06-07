@@ -23,26 +23,35 @@ char *erasechar(char *str, int i, int num){
     char c = str[i];
     char *strx = (char *)malloc(sizeof(char)*(len-num));
     int Del = 0;
+    int n = 0;
 
     strx = temp;
 
     if(num == 0) return str;
-
-    if( (len - i) < num ){
-        printf("Error\n");
+    if(i > len) {
+        printf("Size Error\n");
         return str;
     }
 
-    while (*str != '\0') {
-        if(*str == c && Del == 0) {
-            str = str + (num-1);
-            Del = 1;  // Avoid Duplicate case
-        } else {
-            *temp = *str;
-            temp++;
-        }
+    if( (len - i) < num ){
+        printf("Size Error\n");
+        return str;
+    }
+
+    for(n = 0; n < i; n++){
+        *temp = *str;
+        temp++;
         str++;
     }
+
+    str = str + num;
+
+    while (*str != '\0') {
+        *temp = *str;
+        temp++;
+        str++;
+    }
+
     *temp = '\0';
 
     return strx;
@@ -67,6 +76,7 @@ char *removeKdigits(char *str, int k){
         k--;
     }
 
+    // trim leading zeros
     while (s < (strlen(temp)-1) && temp[s] == '0') {
       s++;
     }
@@ -79,9 +89,9 @@ char *removeKdigits(char *str, int k){
 int main(void) {
     char *str = "1432219";
 
+    printf("Origin: %s\n", str);
     str = removeKdigits(str, 3);
-
-    printf("%s\n", str);
+    printf("After : %s\n", str);
 
     return 0;
 }
