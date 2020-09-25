@@ -25,12 +25,12 @@ void push(MaxStack *s, int data) {
         printf("Push number %d\n", data);
         s->top++;
         s->array[s->top] = data;
-        
+
         if(s->top == 0){  //First element
-           s->Max[s->top] = data;
-           return;
+            s->Max[s->top] = data;
+            return;
         }
-        
+
         if(data > s->Max[s->top-1]){
             s->Max[s->top] = data;
         } else {
