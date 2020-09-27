@@ -13,8 +13,8 @@ int searchInsert(int* nums, int numsSize, int target) {
 int main(void) {
     puts("Hello World!");
     int n[] = {1,3,5,6,9};
-    int size = sizeof(n);
-    
-    printf("%d\n", searchInsert(n, size, 7));
+    int size = sizeof(n)/sizeof(n[0]);
+
+    printf("Need to be inserted to: %d\n", searchInsert(n, size, 7));
     return 0;
 }
